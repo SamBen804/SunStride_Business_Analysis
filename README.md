@@ -1,3 +1,5 @@
+![Sunrise](images/Sunrise.jpeg)
+
 # SunStride_Business_Analysis
 
 ## Overview
