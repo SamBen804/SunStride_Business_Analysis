@@ -64,7 +64,7 @@ Similar to how I proceeded in modeling with the DecisionTree Classifier, I began
 
 The tuned verision of the RandomForest model was then chosen for my final model and I introduced the unseen tesing data. The model performed almost identical on the testing data as it performed on the training data suggesting it is well fit to predict unseen data at the scoring levels seen on training data. Next I analyzed the feature importances that contributed the model's splitting decisions and generated the graph below:
 
-![Feature_Importances_Final](images/Feature_Importances.png)
+![Feature_Importances](images/Feature_Importances_Final.png)
 
 This graph shows the significant impact of the 'Years at Camp' feature in making splitting decisions for the model. This level of signifance suggests that a student's status as an alumni or returning student greatly impacts their decision to return or re-enroll the following summer. 
 
