@@ -66,7 +66,7 @@ Similar to how I proceeded in modeling with the DecisionTree Classifier, I began
 
 See the improvement in the model's predictive ability by reviewing the confusion matrix below:
 
-![Final_Model_Confusion_Matrix](images/Final_Model_CM.31.28 PM.png)
+![Final_Model_Confusion_Matrix](images/Final_Model_CM.png)
 
 The tuned verision of the RandomForest model was then chosen for my final model and I introduced the unseen tesing data. The model performed almost identical on the testing data as it performed on the training data suggesting it is well fit to predict unseen data at the scoring levels seen on training data. Next I analyzed the feature importances that contributed the model's splitting decisions and generated the graph below:
 
