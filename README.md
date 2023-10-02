@@ -22,32 +22,29 @@ The data was provided by SunStride from their customer management system. This s
 
 ## Data Preparation
 
-The features included in the dataset are a mix of both categorical and numeric varibles. Significant pre-processing was needed to clean and prepare the data for final modeling. During this cleaning stage, many columns were dropped from the dataset for various reasons (such as too many unique values to impactful in a predictive model, etc), and all of these reasons are documented in the "Final_Data_Cleaning" notebook linked here along with detailed descriptions of all the features that are included in the final model.
+The features included in the dataset are a mix of both categorical and numeric varibles. Significant pre-processing was needed to clean and prepare the data for final modeling. During this cleaning stage, many columns were dropped from the dataset for various reasons (such as too many unique values to impactful in a predictive model, etc), and all of these reasons are documented in the ['Data_Cleaning_Final'](Data_Cleaning_Final.ipynb) notebook linked here along with detailed descriptions of all the features that are included in the final model.
 
-Some additional pre-processing steps included the imputation of missing column values and the OneHotEncoding of the categorical freatures. The numeric features in this case were not scaled, because the final model does not take the measure of distance into account, therefore the varying scales of the numeric features does not negatively impact the model's performance.
+The remaining work in this project is documented in the modeling notebook titled ['Classifer_Models_Final'](Classifier_Models_Final.ipynb). Some additional pre-processing steps outlined in this notebook include the imputation of missing column values and the OneHotEncoding of the categorical freatures. The numeric features in this case were not scaled, because the final model does not take the measure of distance into account, therefore the varying scales of the numeric features does not negatively impact the model's performance.
 
-### Train-test Splitting
-> - Before any modeling can begin, I will split the training and testing data. Performing this step now prevents data leakage by keeping the testing data hidden throughout the entire modeling process until a final model is chosen. 
+Finally, before any modeling can begin, I split the data into training and testing sets. Performing this step now prevents data leakage by keeping the testing data hidden throughout the entire modeling process until a final model is chosen. 
 
-### Baseline Understanding: Analyzing 'target' Column and Building a DummyClassifier
-> - First I will check the value counts in the taget column and normalize the output to see the ratio of students that returned to the overall dataset. 
-> - Then I will build a dummy model, which should result in scores that mirror the value I discovered in the normailzed value_counts of the 'target' column, becasue the dummy model will only pick the positive (1) value class. Of course this inital model will only act to represent a starting point for analysis, as it would not be useful to SunStride to have so many false positive predictions. 
-
-> - I expect to see the ~.48 value for the positive class (designating the model is predicting that a student will return) to be repeated in the scoring for the dummy model:
-
-> - This model's precision score represents the baseline that I will seek to improve through various modeling techniques and tuning. My goal moving forward will be to improve upon this ~.48 precision score. I plan to continue to include the other scores in my analysis, however my focus on optimizing the precision score will remain. See futher explanation below:
+### Baseline Understanding:
+- First I will check the value counts in the taget column and normalize the output to see the ratio of students that returned to the overall dataset. 
+- Then I will build a dummy model, which should result in scores that mirror the value I discovered in the normailzed value_counts of the 'target' column, becasue the dummy model will only pick the positive (1) value class. Of course this inital model will only act to represent a starting point for analysis, as it would not be useful to SunStride to have so many false positive predictions. 
+- I expect to see the ~.48 value for the positive class (designating the model is predicting that a student will return) to be repeated in the scoring for the dummy model:
+- This model's precision score represents the baseline that I will seek to improve through various modeling techniques and tuning. My goal moving forward will be to improve upon this ~.48 precision score. I plan to continue to include the other scores in my analysis, however my focus on optimizing the precision score will remain. See futher explanation below:
 
 #### Focus on Precision Score and Reducing False Positives:
-> The precision score represents the 'False Positives' generated by the model, this means the model is predicting that a student will re-enroll (designated with a 1 in the confusion matrix above) when they in fact do not re-enroll the following summer (designated by a 0 marker). 
-> - The precision score represents all of the students that were incorrectly predicted to re-enroll the next summer when they do not in fact choose to travel with SunStride again. This mistaken prediction could cause the SunStride HQ to allocate funds for this higher expected enrollment, over-budgeting and ultimately being left with unfilled trips.
-> - For many of the outfitters that SunStride works with, a flat rate is charged regardless of the trip capacity, thus causing SunStride to have to take a loss for these unfilled spots.
-> - The recall score, in this case, represents the model's generation of False Negatives. 
->> - A False Negative in this case represents the instances where the model has designated a student will NOT re-enroll the next summer but they actually do.
->> - Yes, this figure could represent money left on the table, defined as an opportunity for SunStride to fill a trip spot that the company has not allocated resources for; however, SunStride does not ultimately lose any money out of pocket in these instances and would be able to add the student to the Waitlist for the next summer, which can build anticipation for students and families for the next season.
+The precision score represents the 'False Positives' generated by the model, this means the model is predicting that a student will re-enroll (designated with a 1 in the confusion matrix above) when they in fact do not re-enroll the following summer (designated by a 0 marker). 
+- The precision score represents all of the students that were incorrectly predicted to re-enroll the next summer when they do not in fact choose to travel with SunStride again. This mistaken prediction could cause the SunStride HQ to allocate funds for this higher expected enrollment, over-budgeting and ultimately being left with unfilled trips.
+- For many of the outfitters that SunStride works with, a flat rate is charged regardless of the trip capacity, thus causing SunStride to have to take a loss for these unfilled spots.
+- The recall score, in this case, represents the model's generation of False Negatives. 
+> - A False Negative in this case represents the instances where the model has designated a student will NOT re-enroll the next summer but they actually do.
+> - Yes, this figure could represent money left on the table, defined as an opportunity for SunStride to fill a trip spot that the company has not allocated resources for; however, SunStride does not ultimately lose any money out of pocket in these instances and would be able to add the student to the Waitlist for the next summer, which can build anticipation for students and families for the next season.
 
 ### OneHotEncoder
-> - In order to use the categorical feature columns in the classifier models I will build, I need to first OneHotEncode out each of the columns' categorical variables. This means that I will be creating a matrix of all binary values that the classifier will be able to read and use to make splitting decisions.
-> - For example: the OneHotEncoder dealing with the 'Gender' column which contains either 'Male' or 'Female' will split this column into two new columns for each record in the dataset. If the student's gender is designated male before the split then the resulting 'Gender_Male' column generated by the encoder will contain a value of 1 and the 'Gender_Female' column for this same record will contain a 0 and so on. 
+- In order to use the categorical feature columns in the classifier models I will build, I need to first OneHotEncode out each of the columns' categorical variables. This means that I will be creating a matrix of all binary values that the classifier will be able to read and use to make splitting decisions.
+- For example: the OneHotEncoder dealing with the 'Gender' column which contains either 'Male' or 'Female' will split this column into two new columns for each record in the dataset. If the student's gender is designated male before the split then the resulting 'Gender_Male' column generated by the encoder will contain a value of 1 and the 'Gender_Female' column for this same record will contain a 0 and so on. 
 
 ## Modeling:
 
