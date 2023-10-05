@@ -87,6 +87,9 @@ The model doesn't currently project new students that are enrolling for the firs
 
 Another potential next step would be to run this same analysis for multiple years of the company's data to see if an additional patterns coudl be picked up by the model. My final suggested next step would be to use this model to guide marketing spend decisions, such as targeting the younger students by adding more trip options and promoting their engagement with the brand to promote student further retention.
 
+### Presentation
+I compiled this information into a presentation, linked here: [Presentation](Presentation.pdf)
+
 #### Repository Structure Diagram
 ```
 ├── data
