@@ -87,7 +87,8 @@ The model doesn't currently project new students that are enrolling for the firs
 
 Another potential next step would be to run this same analysis for multiple years of the company's data to see if an additional patterns coudl be picked up by the model. My final suggested next step would be to use this model to guide marketing spend decisions, such as targeting the younger students by adding more trip options and promoting their engagement with the brand to promote student further retention.
 
-
+#### Repository Structure Diagram
+```
 ├── data
 │   ├── Years_at_Camp.csv
 │   ├── cleaned_student_enrolled_demographics.csv  
@@ -96,6 +97,7 @@ Another potential next step would be to run this same analysis for multiple year
 ├── eda_notebooks
 │   ├── eda0_data_cleanup.ipynb
 ├── images
+│   ├── Presentation_Images/
 │   ├── Dummy_Model_CM.png
 │   ├── Feature_Importances_Final.png 
 │   ├── Feature_Importances_less_YaC.png
@@ -108,3 +110,4 @@ Another potential next step would be to run this same analysis for multiple year
 ├── LICENSE
 ├── Presentation.pdf
 ├── README.md
+```
