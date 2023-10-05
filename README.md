@@ -105,6 +105,7 @@ Another potential next step would be to run this same analysis for multiple year
 │   ├── Sunrise.jpeg  
 │   ├── Years_at_Camp.png      
 ├── .gitignore
+├── environment.yml
 ├── Classifier_Models_Final.ipynb
 ├── Data_Cleaning_Final.ipynb
 ├── LICENSE
