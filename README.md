@@ -66,7 +66,7 @@ Similar to how I proceeded in modeling with the DecisionTree Classifier, I began
 
 See the improvement in the model's predictive ability by reviewing the confusion matrix below:
 
-![Final_Model_Confusion_Matrix](images/Final_Model_CM.31.28 PM.png)
+![Final_Model_Confusion_Matrix](images/Final_Model_CM.png)
 
 The tuned verision of the RandomForest model was then chosen for my final model and I introduced the unseen tesing data. The model performed almost identical on the testing data as it performed on the training data suggesting it is well fit to predict unseen data at the scoring levels seen on training data. Next I analyzed the feature importances that contributed the model's splitting decisions and generated the graph below:
 
@@ -86,3 +86,25 @@ For my final recommendation, I suggest that the company offer additional benefit
 The model doesn't currently project new students that are enrolling for the first time each season, and if I was to continue working on this project I would propose that one of the next steps would be to analyze new markets in the country to ensure that there is a consistent and steady flow of new customers being reached by the company. This analysis could unfold in many ways, but likely would develop through comparitive reasearch of the current successful markets and the identifiation of untapped markets with similar demographic characteristics.
 
 Another potential next step would be to run this same analysis for multiple years of the company's data to see if an additional patterns coudl be picked up by the model. My final suggested next step would be to use this model to guide marketing spend decisions, such as targeting the younger students by adding more trip options and promoting their engagement with the brand to promote student further retention.
+
+
+├── data
+│   ├── Years_at_Camp.csv
+│   ├── cleaned_student_enrolled_demographics.csv  
+│   ├── features_table.csv
+│   ├── student_enrolled_demographics.csv  
+├── eda_notebooks
+│   ├── eda0_data_cleanup.ipynb
+├── images
+│   ├── Dummy_Model_CM.png
+│   ├── Feature_Importances_Final.png 
+│   ├── Feature_Importances_less_YaC.png
+│   ├── Final_Model_CM.png  
+│   ├── Sunrise.jpeg  
+│   ├── Years_at_Camp.png      
+├── .gitignore
+├── Classifier_Models_Final.ipynb
+├── Data_Cleaning_Final.ipynb
+├── LICENSE
+├── Presentation.pdf
+├── README.md
